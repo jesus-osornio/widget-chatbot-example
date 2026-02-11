@@ -1,3 +1,6 @@
-/widget.bundle.js
+/*
   Access-Control-Allow-Origin: *
-  Cache-Control: public, max-age=1800
+
+/widget.bundle.js
+  Cache-Control: public, max-age=3600
+  Content-Type: application/javascript

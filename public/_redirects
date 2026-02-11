@@ -1,0 +1,5 @@
+# Redirigir todo al index.html si no encuentra el archivo
+/* /index.html   200
+
+# Si quieres que una ruta específica vaya al JS
+/download    /widget.bundle.js   301
