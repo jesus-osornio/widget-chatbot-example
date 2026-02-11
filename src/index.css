@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes:
+    winter --default,
+    luxury --prefersdark;
+}
+
+@layer base {
+  :host,
+  #widget-root {
+    /* 1. VARIABLES ESTRUCTURALES (No tienen color, son seguras)
+       Estas se quedan en "0" o transparentes. Tailwind las sobrescribe
+       cuando usas una clase como 'shadow-xl'. */
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-inset-shadow: 0 0 #0000;
+    --tw-inset-ring-shadow: 0 0 #0000;
+
+    /* 2. VARIABLES DE COLOR (¡Estas sí importan!)
+       En lugar de poner #fff (blanco fijo), las conectamos a DaisyUI. */
+
+    /* El "anillo de separación" tomará el color de fondo del tema actual (Winter o Luxury) */
+    --tw-ring-offset-color: var(--b1);
+
+    /* El color del anillo por defecto (azul Tailwind) puede ser tu color primario */
+    --tw-ring-color: rgb(59 130 246 / 0.5);
+
+    /* 3. VARIABLES DE TRANSFORMACIÓN (Física pura, no cambian con el tema) */
+    --tw-ring-inset: ;
+    --tw-ring-offset-width: 0px;
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+
+    /* FIX EXTRA: A veces la opacidad base se rompe en Shadow DOM */
+    --tw-text-opacity: 1;
+    --tw-bg-opacity: 1;
+  }
+}
