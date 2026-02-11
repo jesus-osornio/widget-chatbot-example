@@ -36,7 +36,7 @@ export function Widget({ config }: WidgetProps) {
       <style>{styles}</style>
 
       {/* Botón Flotante */}
-      <div className="fixed top-4 right-4 z-9999">
+      <div className="fixed bottom-4 right-4 z-9999">
         <button
           className="btn btn-circle btn-primary shadow-xl transition-transform hover:scale-110"
           onClick={() => setIsOpen(!isOpen)}
@@ -79,7 +79,7 @@ export function Widget({ config }: WidgetProps) {
 
       {/* Ventana del Chat */}
       {isOpen && (
-        <div className="card shadow-2xl bg-base-100 card-border border-base-300 card-sm fixed top-20 right-4 z-9999 animate-fade-in-up overflow-hidden w-sm ">
+        <div className="card shadow-2xl bg-base-100 card-border border-base-300 card-sm fixed bottom-20 right-4 z-9999 animate-fade-in-up overflow-hidden w-sm ">
           <div>
             {/* Header */}
             <div className="bg-base-300 p-4 relative">
