@@ -1,13 +1,232 @@
 <!doctype html>
-<html lang="en">
+<html lang="es" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>widget-chat</title>
+    <title>ChatWidget | Developer Hub</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+      body {
+        background-color: #0d1117;
+        background-image: radial-gradient(circle at 50% -20%, #1e293b, #0d1117);
+        background-attachment: fixed;
+      }
+      .code-container {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .code-header {
+        background: #21262d;
+        padding: 8px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #30363d;
+      }
+      .token-tag {
+        color: #7ee787;
+      }
+      .token-attr {
+        color: #79c0ff;
+      }
+      .token-val {
+        color: #a5d6ff;
+      }
+      .token-comment {
+        color: #8b949e;
+      }
+
+      /* Animación suave para el área de demo */
+      .demo-area {
+        background-image: radial-gradient(#30363d 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+    </style>
   </head>
-  <body>
-    <div id="app"></div>
+  <body
+    class="min-h-screen text-slate-300 font-sans antialiased selection:bg-indigo-500/30"
+  >
+    <div class="max-w-5xl mx-auto p-6 py-20">
+      <header class="text-center mb-16">
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 mb-6 shadow-2xl shadow-indigo-500/20"
+        >
+          <span class="text-3xl text-white">💬</span>
+        </div>
+        <h1
+          class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight"
+        >
+          ChatWidget<span class="text-indigo-500">.js</span>
+        </h1>
+        <p class="text-slate-400 text-lg">
+          La forma más elegante de integrar chats en tus proyectos.
+        </p>
+      </header>
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-12">
+        <div class="lg:col-span-8">
+          <div class="code-container shadow-2xl h-full">
+            <div class="code-header">
+              <div class="flex gap-1.5">
+                <div
+                  class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"
+                ></div>
+                <div
+                  class="w-3 h-3 rounded-full bg-amber-500/20 border border-amber-500/50"
+                ></div>
+                <div
+                  class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"
+                ></div>
+              </div>
+              <button
+                onclick="copyCode()"
+                class="text-xs font-medium hover:text-white flex items-center gap-1.5 transition-colors group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 group-active:scale-90"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+                  />
+                </svg>
+                Copy Code
+              </button>
+            </div>
+            <div class="p-6 overflow-x-auto font-mono text-sm leading-relaxed">
+              <pre><code><span class="token-comment">&lt;!-- Instalación --&gt;</span>
+<span class="token-tag">&lt;script</span> <span class="token-attr">src</span>=<span class="token-val">"/widget.bundle.js"</span> <span class="token-attr">async</span><span class="token-tag">&gt;&lt;/script&gt;</span>
+
+<span class="token-tag">&lt;script&gt;</span>
+  <span class="token-attr">window</span>.addEventListener(<span class="token-val">'load'</span>, () => {
+    <span class="token-attr">window</span>.initChatWidget({
+      publicKey: <span class="token-val">'DEMO_KEY'</span>,
+      theme: { primaryColor: <span class="token-val">'#6366f1'</span> }
+    });
+  });
+<span class="token-tag">&lt;/script&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <a
+            href="/widget.bundle.js"
+            download="chat-widget.js"
+            class="h-full p-8 rounded-3xl bg-indigo-600/10 border border-indigo-500/20 flex flex-col items-center justify-center text-center group hover:bg-indigo-600/20 hover:border-indigo-500/50 transition-all shadow-xl cursor-pointer block"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-indigo-500 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-indigo-500/40 transition-all duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+            </div>
+
+            <h3
+              class="text-white font-bold text-2xl mb-2 group-hover:text-indigo-400 transition-colors"
+            >
+              Production JS
+            </h3>
+            <p
+              class="text-indigo-300/60 text-xs mb-8 uppercase tracking-[0.2em] font-black"
+            >
+              57 KB • Optimized Bundle
+            </p>
+            <div
+              class="py-3 px-8 bg-indigo-500 group-hover:bg-indigo-400 text-white font-bold rounded-xl w-full shadow-lg transition-all"
+            >
+              Download File
+            </div>
+            <p
+              class="text-[10px] text-slate-500 mt-4 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              v1.0.0 • chat-widget.bundle.js
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <section class="mt-16">
+        <div class="flex items-center gap-4 mb-8 px-2">
+          <h2 class="text-2xl font-bold text-white">Interactive Demo</h2>
+          <div class="h-px flex-1 bg-slate-800"></div>
+        </div>
+
+        <div
+          class="demo-area rounded-3xl border border-slate-800 p-12 text-center relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 bg-linear-to-t from-[#0d1117] via-transparent to-transparent opacity-60"
+          ></div>
+
+          <div class="relative z-10">
+            <p class="text-slate-400 mb-8 max-w-md mx-auto">
+              Prueba el widget ahora mismo. Haz clic en el botón de abajo para
+              inicializar el componente en esta página.
+            </p>
+            <button
+              onclick="runDemo()"
+              class="btn btn-lg px-12 bg-white text-black hover:bg-slate-200 border-none rounded-full shadow-2xl transition-all active:scale-95"
+            >
+              🚀 Run Demo Widget
+            </button>
+            <p class="text-xs text-slate-500 mt-6 italic">
+              El widget aparecerá en la esquina inferior derecha.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer
+        class="mt-24 text-center text-slate-600 text-sm border-t border-slate-800 pt-8"
+      >
+        Built with Preact, Tailwind v4 and DaisyUI.
+      </footer>
+    </div>
+
+    <script>
+      function copyCode() {
+        const code = `<script src="${window.location.origin}/widget.bundle.js" async><\/script>\n\n<script>\n  window.addEventListener('load', () => {\n    window.initChatWidget({ publicKey: 'DEMO_KEY' });\n  });\n<\/script>`;
+        navigator.clipboard.writeText(code);
+        alert("¡Código copiado! 📋");
+      }
+
+      function runDemo() {
+        if (window.initChatWidget) {
+          window.initChatWidget({
+            publicKey: "DEMO_KEY",
+            theme: { primaryColor: "#6366f1" },
+          });
+          // Pequeño feedback visual
+          const btn = event.target;
+          btn.innerText = "✅ Widget Active";
+          btn.classList.remove("bg-white", "hover:bg-slate-200");
+          btn.classList.add("bg-green-500", "text-white", "hover:bg-green-700");
+        } else {
+          alert("El script del widget aún no ha cargado.");
+        }
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
